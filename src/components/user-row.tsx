@@ -1,4 +1,7 @@
-import { Role, User } from '../types/user.type';
+import { User } from '../types/user.type';
+
+import UserRole from './user-role';
+import UserStatus from './user-status';
 
 const UserRow = ({ username, name, active, role }: User) => {
   <div className="c-user-row">
