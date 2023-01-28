@@ -2,6 +2,9 @@ import { useState } from 'react';
 
 import { User } from '../types/user.type';
 
+import UserListRows from './user-list-rows';
+import UsersListFilters from './users-list-filters';
+
 type UserListProps = {
   initialUsers: User[];
 };
@@ -14,34 +17,21 @@ const UsersList = ({ initialUsers }: UserListProps) => {
   let filteredUsers = filterActiveUsers(initialUsers, activeOnly);
   filteredUsers = filterUsersByName(filteredUsers, search);
   filteredUsers = sortUsers(filteredUsers, sortBy);
-  const renderedUsers = renderUsers(filteredUsers);
 
   return (
     <div className="c-user-list">
       <h1 className="c-user-list__title">Listado de usuarios</h1>
-      <form className="c-user-list__form">
-        <input
-          type="text"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-        />
-        <div className="c-user-list__checkbox">
-          <input
-            type="checkbox"
-            checked={activeOnly}
-            onChange={e => setActiveOnly(e.target.checked)}
-          />
-          <span>Sólo activos</span>
-        </div>
-        <select
-          className="c-user-list__select"
-          value={sortBy}
-          onChange={e => setSortBy(Number(e.target.value))}
-        >
-          <option value={0}>Por defecto</option>
-          <option value={1}>Por nombre</option>
-        </select>
-      </form>
+      <UsersListFilters
+        {...{
+          search,
+          setSearch,
+          activeOnly,
+          setActiveOnly,
+          sortBy,
+          setSortBy,
+        }}
+      />
+      <UserListRows users={filteredUsers} />
     </div>
   );
 };
@@ -73,11 +63,6 @@ const sortUsers = (users: User[], sortBy: number) => {
     default:
       return sortedUsers;
   }
-};
-
-const renderUsers = (users: User[]) => {
-  if (!users.length) return <p>No hay usuarios</p>;
-  return users.map(user => <UserRow key={user.username} {...user} />);
 };
 
 export default UsersList;
