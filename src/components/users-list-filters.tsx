@@ -2,11 +2,11 @@ import React from 'react';
 
 type UsersListFiltersProps = {
   search: string;
-  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  setSearch: (search: string) => void;
   activeOnly: boolean;
-  setActiveOnly: React.Dispatch<React.SetStateAction<boolean>>;
+  setActiveOnly: (search: boolean) => void;
   sortBy: number;
-  setSortBy: React.Dispatch<React.SetStateAction<number>>;
+  setSortBy: (search: number) => void;
 };
 
 const UsersListFilters = ({
