@@ -10,8 +10,7 @@ type UsersListProps = {
 };
 
 const UsersList = ({ users }: UsersListProps) => {
-  const { search, setSearch, activeOnly, setActiveOnly, sortBy, setSortBy } =
-    useFilters();
+  const { search, activeOnly, sortBy, ...setFiltersFunctions } = useFilters();
 
   let filteredUsers = filterActiveUsers(users, activeOnly);
   filteredUsers = filterUsersByName(filteredUsers, search);
@@ -23,12 +22,10 @@ const UsersList = ({ users }: UsersListProps) => {
       <UsersListFilters
         {...{
           search,
-          setSearch,
           activeOnly,
-          setActiveOnly,
           sortBy,
-          setSortBy,
         }}
+        {...setFiltersFunctions}
       />
       {paintUsers(filteredUsers)}
     </div>
