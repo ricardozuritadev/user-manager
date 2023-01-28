@@ -1,6 +1,5 @@
-import { useState } from 'react';
-
 import { paintUsers } from '../utils/functions';
+import { useFilters } from '../hooks/useFilters';
 
 import { User } from '../types/user.type';
 
@@ -10,32 +9,9 @@ type UsersListProps = {
   users: User[];
 };
 
-type UsersListState = {
-  search: string;
-  activeOnly: boolean;
-  sortBy: number;
-};
-
 const UsersList = ({ users }: UsersListProps) => {
-  const [{ search, activeOnly, sortBy }, setFilters] = useState<UsersListState>(
-    {
-      search: '',
-      activeOnly: false,
-      sortBy: 0,
-    }
-  );
-
-  const setSearch = (search: string) => {
-    setFilters({ search, activeOnly, sortBy });
-  };
-
-  const setActiveOnly = (activeOnly: boolean) => {
-    setFilters({ search, activeOnly, sortBy });
-  };
-
-  const setSortBy = (sortBy: number) => {
-    setFilters({ search, activeOnly, sortBy });
-  };
+  const { search, setSearch, activeOnly, setActiveOnly, sortBy, setSortBy } =
+    useFilters();
 
   let filteredUsers = filterActiveUsers(users, activeOnly);
   filteredUsers = filterUsersByName(filteredUsers, search);
