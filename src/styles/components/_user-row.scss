@@ -1,6 +1,7 @@
 .c-user-row {
   display: flex;
   justify-content: space-around;
+  font-size: $font-text-sm;
   border: 1px solid black;
   border-radius: $radius-md;
   padding: 1.2rem 2.4rem;
