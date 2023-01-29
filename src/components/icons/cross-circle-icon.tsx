@@ -1,10 +1,14 @@
-const CrossCircleIcon = (props: any) => (
+type CrossCircleIconProps = {
+  className: string;
+};
+
+const CrossCircleIcon = ({ className }: CrossCircleIconProps) => (
   <svg
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}
+    className={className}
   >
     <path
       strokeLinecap="round"
