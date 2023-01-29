@@ -1,4 +1,6 @@
-import React from 'react';
+import { ChangeEvent } from 'react';
+
+import InputSearch from './forms/input-search';
 
 type UsersListFiltersProps = {
   search: string;
@@ -19,23 +21,29 @@ const UsersListFilters = ({
 }: UsersListFiltersProps) => {
   return (
     <form className="c-user-list-filters">
-      <input
-        type="text"
+      <InputSearch
+        placeholder="Buscar..."
         value={search}
-        onChange={e => setSearch(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          setSearch(e.target.value)
+        }
       />
       <div className="c-user-list-filters__checkbox">
         <input
           type="checkbox"
           checked={activeOnly}
-          onChange={e => setActiveOnly(e.target.checked)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setActiveOnly(e.target.checked)
+          }
         />
         <span>Sólo activos</span>
       </div>
       <select
         className="c-user-list-filters__select"
         value={sortBy}
-        onChange={e => setSortBy(Number(e.target.value))}
+        onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+          setSortBy(Number(e.target.value))
+        }
       >
         <option value={0}>Por defecto</option>
         <option value={1}>Por nombre</option>
