@@ -1,10 +1,14 @@
-const CheckCircleIcon = (props: any) => (
+type CheckCircleIconProps = {
+  className: string;
+};
+
+const CheckCircleIcon = ({ className }: CheckCircleIconProps) => (
   <svg
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}
+    className={className}
   >
     <path
       strokeLinecap="round"
