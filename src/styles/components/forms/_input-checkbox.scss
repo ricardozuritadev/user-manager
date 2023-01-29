@@ -1,0 +1,27 @@
+.c-input-checkbox {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-sm;
+  position: relative;
+
+  &__input {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+
+    &:not(:checked) + .c-input-checkbox__check {
+      display: none;
+    }
+  }
+
+  &__check {
+    user-select: none;
+    height: 2rem;
+    width: 2rem;
+  }
+}
