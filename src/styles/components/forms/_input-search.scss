@@ -21,6 +21,7 @@
   }
 
   &__icon {
+    pointer-events: none;
     position: absolute;
     top: 1.3rem;
     left: 1.6rem;
