@@ -2,6 +2,7 @@ import { ChangeEvent } from 'react';
 
 import InputCheckbox from './forms/input-checkbox';
 import InputSearch from './forms/input-search';
+import Select from './forms/select';
 
 type UsersListFiltersProps = {
   search: string;
@@ -37,18 +38,12 @@ const UsersListFilters = ({
         />
         <p>Sólo activos</p>
       </div>
-      <select
-        className="c-user-list-filters__select"
+      <Select
         value={sortBy}
         onChange={(e: ChangeEvent<HTMLSelectElement>) =>
           setSortBy(Number(e.target.value))
         }
-      >
-        <option value={0}>Por defecto</option>
-        <option value={1}>Por nombre</option>
-        <option value={2}>Por role</option>
-        {!activeOnly && <option value={3}>Por estado</option>}
-      </select>
+      />
     </form>
   );
 };
