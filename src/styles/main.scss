@@ -4,4 +4,8 @@
 @import './root';
 
 // COMPONENTS
+@import './components/users-list-filters';
+@import './components/users-list';
+@import './components/user-list-rows';
+@import './components/user-row';
 @import './components/user-role';
