@@ -1,14 +1,16 @@
+import { useFilters } from '../hooks/use-filters';
+import { useUsers } from '../hooks/use-users';
+
 import {
   filterActiveUsers,
   filterUsersByName,
-  paintUsers,
   sortUsers,
 } from '../utils/functions';
-import { useFilters } from '../hooks/useFilters';
 
 import { User } from '../types/user.type';
 
 import UsersListFilters from './users-list-filters';
+import UserListRows from './user-list-rows';
 
 type UsersListProps = {
   initialUsers: User[];
@@ -17,7 +19,9 @@ type UsersListProps = {
 const UsersList = ({ initialUsers }: UsersListProps) => {
   const { search, activeOnly, sortBy, ...setFiltersFunctions } = useFilters();
 
-  let filteredUsers = filterActiveUsers(initialUsers, activeOnly);
+  const { users, toggleUserActive } = useUsers(initialUsers);
+
+  let filteredUsers = filterActiveUsers(users, activeOnly);
   filteredUsers = filterUsersByName(filteredUsers, search);
   filteredUsers = sortUsers(filteredUsers, sortBy);
 
@@ -32,7 +36,7 @@ const UsersList = ({ initialUsers }: UsersListProps) => {
         }}
         {...setFiltersFunctions}
       />
-      {paintUsers(filteredUsers)}
+      <UserListRows users={filteredUsers} toggleUserActive={toggleUserActive} />
     </div>
   );
 };
