@@ -1,4 +1,5 @@
 import { User } from '../types/user.type';
+import UserDiplay from './user-display';
 
 import UserRole from './user-role';
 import UserStatus from './user-status';
@@ -7,7 +8,7 @@ const UserRow = ({ username, name, active, role }: User) => {
   return (
     <div className="c-user-row">
       <div className="c-user-row__name">
-        <span>{name}</span>
+        <UserDiplay name={name} username={username} />
       </div>
       <div className="c-user-row__status">
         <UserStatus active={active} />
