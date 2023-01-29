@@ -5,7 +5,7 @@ type UserRoleProps = {
 };
 
 const UserRole = ({ role }: UserRoleProps) => {
-  return <div>{role}</div>;
+  return <div className="c-user-role">{role}</div>;
 };
 
 export default UserRole;
