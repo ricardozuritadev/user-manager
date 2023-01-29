@@ -3,7 +3,7 @@ type UserStatusProps = {
 };
 
 const UserStatus = ({ active }: UserStatusProps) => {
-  return <div>UserStatus</div>;
+  return <div>{active ? 'Activo' : 'Inactivo'}</div>;
 };
 
 export default UserStatus;
