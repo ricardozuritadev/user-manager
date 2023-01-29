@@ -10,11 +10,11 @@ const UserListRows = ({ users }: UserListRowsProps) => {
   if (users.length <= 0) return <p>No hay usuarios</p>;
 
   return (
-    <>
+    <div className="c-user-list-rows">
       {users.map(user => (
         <UserRow key={user.username} {...user} />
       ))}
-    </>
+    </div>
   );
 };
 
