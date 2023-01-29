@@ -1,17 +1,21 @@
 .c-user-row {
   display: flex;
+  align-items: center;
   font-size: $font-text-sm;
   box-shadow: $shadow-sm;
   border-radius: $radius-md;
   padding: 1.2rem 2.4rem;
 
   &__name {
-    width: 40%;
+    width: 45%;
+  }
+
+  &__action {
+    width: 15%;
   }
 
   &__status,
-  role,
-  action {
+  &__role {
     width: 20%;
   }
 }
