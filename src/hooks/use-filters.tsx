@@ -18,7 +18,11 @@ export const useFilters = () => {
   };
 
   const setActiveOnly = (activeOnly: boolean) => {
-    setFilters({ ...filters, activeOnly });
+    if (activeOnly && filters.sortBy === 3) {
+      setFilters({ ...filters, sortBy: 0, activeOnly });
+    } else {
+      setFilters({ ...filters, activeOnly });
+    }
   };
 
   const setSortBy = (sortBy: number) => {
