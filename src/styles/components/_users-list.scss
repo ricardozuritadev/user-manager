@@ -1,0 +1,12 @@
+.c-users-list {
+  width: 100%;
+  max-width: 75rem;
+  margin: auto;
+  padding: 3rem 1rem;
+
+  &__title {
+    text-align: center;
+    font-size: $font-title-2;
+    margin-bottom: 4rem;
+  }
+}
