@@ -18,13 +18,13 @@ const UsersListFilters = ({
   setSortBy,
 }: UsersListFiltersProps) => {
   return (
-    <form className="c-user-list__form">
+    <form className="c-user-list-filters">
       <input
         type="text"
         value={search}
         onChange={e => setSearch(e.target.value)}
       />
-      <div className="c-user-list__checkbox">
+      <div className="c-user-list-filters__checkbox">
         <input
           type="checkbox"
           checked={activeOnly}
@@ -33,7 +33,7 @@ const UsersListFilters = ({
         <span>Sólo activos</span>
       </div>
       <select
-        className="c-user-list__select"
+        className="c-user-list-filters__select"
         value={sortBy}
         onChange={e => setSortBy(Number(e.target.value))}
       >
