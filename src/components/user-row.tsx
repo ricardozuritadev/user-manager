@@ -3,14 +3,7 @@ import { User } from '../types/user.type';
 import UserRole from './user-role';
 import UserStatus from './user-status';
 
-type UserRowProps = {
-  user: User;
-  toggleUserActive: (userId: number) => void;
-};
-
-const UserRow = ({ user, toggleUserActive }: UserRowProps) => {
-  const { id, name, active, role } = user;
-
+const UserRow = ({ username, name, active, role }: User) => {
   return (
     <div className="c-user-row">
       <div className="c-user-row__name">
@@ -22,11 +15,7 @@ const UserRow = ({ user, toggleUserActive }: UserRowProps) => {
       <div className="c-user-row__role">
         <UserRole role={role} />
       </div>
-      <div className="c-user-row__action">
-        <button onClick={() => toggleUserActive(id)}>
-          {active ? 'Desactivar' : 'Activar'}
-        </button>
-      </div>
+      <div className="c-user-row__action"></div>
     </div>
   );
 };
