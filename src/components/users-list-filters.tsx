@@ -22,29 +22,34 @@ const UsersListFilters = ({
   setSortBy,
 }: UsersListFiltersProps) => {
   return (
-    <form className="c-user-list-filters">
-      <InputSearch
-        placeholder="Buscar..."
-        value={search}
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          setSearch(e.target.value)
-        }
-      />
-      <div className="c-user-list-filters__checkbox">
-        <InputCheckbox
+    <div className="c-user-list-filters">
+      <div className="c-user-list-filters__container">
+        <InputSearch
+          placeholder="Buscar..."
+          value={search}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setActiveOnly(e.target.checked)
+            setSearch(e.target.value)
           }
         />
-        <p>Sólo activos</p>
+        <Select
+          value={sortBy}
+          onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+            setSortBy(Number(e.target.value))
+          }
+        />
       </div>
-      <Select
-        value={sortBy}
-        onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-          setSortBy(Number(e.target.value))
-        }
-      />
-    </form>
+
+      <div className="c-user-list-filters__container">
+        <div className="c-user-list-filters__checkbox">
+          <InputCheckbox
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setActiveOnly(e.target.checked)
+            }
+          />
+          <p>Mostrar sólo activos</p>
+        </div>
+      </div>
+    </div>
   );
 };
 
