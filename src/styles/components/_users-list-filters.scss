@@ -5,4 +5,10 @@
   justify-content: center;
   gap: 1rem;
   margin-bottom: 3rem;
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 }
