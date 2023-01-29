@@ -1,0 +1,17 @@
+.c-input-search {
+  height: 4rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: $radius-sm;
+  border: none;
+  box-shadow: $shadow-sm;
+  outline: none;
+
+  &:focus {
+    box-shadow: $shadow-md;
+  }
+
+  &::placeholder {
+    color: $color-lightgray;
+    font-size: $font-text-sm;
+  }
+}
