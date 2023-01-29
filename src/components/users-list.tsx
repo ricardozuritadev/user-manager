@@ -26,8 +26,8 @@ const UsersList = ({ initialUsers }: UsersListProps) => {
   filteredUsers = sortUsers(filteredUsers, sortBy);
 
   return (
-    <div className="c-user-list">
-      <h1 className="c-user-list__title">Listado de usuarios</h1>
+    <div className="c-users-list">
+      <h1 className="c-users-list__title">Listado de usuarios</h1>
       <UsersListFilters
         {...{
           search,
