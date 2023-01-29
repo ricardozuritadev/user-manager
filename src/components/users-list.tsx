@@ -19,7 +19,7 @@ type UsersListProps = {
 const UsersList = ({ initialUsers }: UsersListProps) => {
   const { search, activeOnly, sortBy, ...setFiltersFunctions } = useFilters();
 
-  const { users, toggleUserActive } = useUsers(initialUsers);
+  const { users } = useUsers(initialUsers);
 
   let filteredUsers = filterActiveUsers(users, activeOnly);
   filteredUsers = filterUsersByName(filteredUsers, search);
@@ -36,7 +36,7 @@ const UsersList = ({ initialUsers }: UsersListProps) => {
         }}
         {...setFiltersFunctions}
       />
-      <UserListRows users={filteredUsers} toggleUserActive={toggleUserActive} />
+      <UserListRows users={filteredUsers} />
     </div>
   );
 };
