@@ -1,5 +1,6 @@
 import { ChangeEvent } from 'react';
 
+import InputCheckbox from './forms/input-checkbox';
 import InputSearch from './forms/input-search';
 
 type UsersListFiltersProps = {
@@ -29,14 +30,12 @@ const UsersListFilters = ({
         }
       />
       <div className="c-user-list-filters__checkbox">
-        <input
-          type="checkbox"
-          checked={activeOnly}
+        <InputCheckbox
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setActiveOnly(e.target.checked)
           }
         />
-        <span>Sólo activos</span>
+        <p>Sólo activos</p>
       </div>
       <select
         className="c-user-list-filters__select"
