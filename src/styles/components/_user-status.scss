@@ -1,0 +1,22 @@
+.c-user-status {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  &--true {
+    color: $color-green;
+  }
+
+  &--false {
+    color: $color-red;
+  }
+
+  &__text {
+    font-size: $font-text-xs;
+  }
+
+  &__icon {
+    height: 1.3rem;
+    width: 1.3rem;
+  }
+}
