@@ -1,4 +1,5 @@
 import { ChangeEvent } from 'react';
+import { SORT_OPTIONS } from '../constants/sort-options';
 
 import InputCheckbox from './forms/input-checkbox';
 import InputSearch from './forms/input-search';
@@ -36,7 +37,14 @@ const UsersListFilters = ({
           onChange={(e: ChangeEvent<HTMLSelectElement>) =>
             setSortBy(Number(e.target.value))
           }
-        />
+        >
+          <option value={SORT_OPTIONS.DEFAULT}>Por defecto</option>
+          <option value={SORT_OPTIONS.NAME}>Por nombre</option>
+          <option value={SORT_OPTIONS.ROLE}>Por rol</option>
+          {!activeOnly && (
+            <option value={SORT_OPTIONS.ACTIVE}>Por estado</option>
+          )}
+        </Select>
       </div>
 
       <div className="c-user-list-filters__container">
