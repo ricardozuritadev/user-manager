@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { SORT_OPTIONS } from '../constants/sort-options';
+
 type UseFilters = {
   search: string;
   activeOnly: boolean;
@@ -10,7 +12,7 @@ export const useFilters = () => {
   const [filters, setFilters] = useState<UseFilters>({
     search: '',
     activeOnly: false,
-    sortBy: 0,
+    sortBy: SORT_OPTIONS.DEFAULT,
   });
 
   const setSearch = (search: string) => {
@@ -18,8 +20,8 @@ export const useFilters = () => {
   };
 
   const setActiveOnly = (activeOnly: boolean) => {
-    if (activeOnly && filters.sortBy === 3) {
-      setFilters({ ...filters, sortBy: 0, activeOnly });
+    if (activeOnly && filters.sortBy === SORT_OPTIONS.ACTIVE) {
+      setFilters({ ...filters, sortBy: SORT_OPTIONS.DEFAULT, activeOnly });
     } else {
       setFilters({ ...filters, activeOnly });
     }
