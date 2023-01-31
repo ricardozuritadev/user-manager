@@ -1,3 +1,6 @@
+import { SORT_OPTIONS } from '../constants/sort-options';
+import { USER_ROLES } from '../constants/user-roles';
+
 import { User } from '../types/user.type';
 
 export const filterUsersByName = (users: User[], search: string) => {
@@ -18,20 +21,21 @@ export const filterActiveUsers = (users: User[], active: boolean) => {
 export const sortUsers = (users: User[], sortBy: number) => {
   const sortedUsers = [...users];
   switch (sortBy) {
-    case 1:
+    case SORT_OPTIONS.NAME:
       return sortedUsers.sort((a, b) => {
         if (a.name > b.name) return 1;
         if (a.name < b.name) return -1;
         return 0;
       });
-    case 2:
+    case SORT_OPTIONS.ROLE:
       return sortedUsers.sort((a, b) => {
         if (a.role === b.role) return 0;
-        if (a.role === 'teacher') return -1;
-        if (a.role === 'student' && b.role === 'other') return -1;
+        if (a.role === USER_ROLES.TEACHER) return -1;
+        if (a.role === USER_ROLES.STUDENT && b.role === USER_ROLES.OTHER)
+          return -1;
         return 1;
       });
-    case 3:
+    case SORT_OPTIONS.ACTIVE:
       return sortedUsers.sort((a, b) => {
         if (a.active === b.active) return 0;
         if (a.active && !b.active) return -1;
