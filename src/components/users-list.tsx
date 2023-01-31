@@ -5,7 +5,7 @@ import {
   filterActiveUsers,
   filterUsersByName,
   sortUsers,
-} from '../utils/functions';
+} from '../utils/user-functions';
 
 import { User } from '../types/user.type';
 
