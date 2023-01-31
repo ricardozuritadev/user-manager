@@ -1,20 +1,17 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, ReactNode } from 'react';
 import ArrowDownIcon from '../icons/arrow-down-icon';
 
 type SortProps = {
   value: number;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+  children: ReactNode;
 };
 
-const Select = ({ value, onChange }: SortProps) => {
+const Select = ({ value, onChange, children }: SortProps) => {
   return (
     <div className="c-select">
       <select className="c-select__options" onChange={onChange}>
-        {' '}
-        <option value={0}>Por defecto</option>
-        <option value={1}>Por nombre</option>
-        <option value={2}>Por rol</option>
-        {/* {!activeOnly && <option value={3}>Por estado</option>} */}
+        {children}
       </select>
       <ArrowDownIcon className="c-select__arrow" />
     </div>
