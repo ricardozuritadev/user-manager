@@ -20,11 +20,12 @@ export const useFilters = () => {
   };
 
   const setActiveOnly = (activeOnly: boolean) => {
-    if (activeOnly && filters.sortBy === SORT_OPTIONS.ACTIVE) {
-      setFilters({ ...filters, sortBy: SORT_OPTIONS.DEFAULT, activeOnly });
-    } else {
-      setFilters({ ...filters, activeOnly });
-    }
+    const newSortBy =
+      activeOnly && filters.sortBy === SORT_OPTIONS.ACTIVE
+        ? SORT_OPTIONS.DEFAULT
+        : filters.sortBy;
+
+    setFilters({ ...filters, sortBy: newSortBy, activeOnly });
   };
 
   const setSortBy = (sortBy: number) => {
